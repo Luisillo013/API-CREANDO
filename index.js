@@ -118,7 +118,7 @@ function authenticateToken(req, res, next) {
         return res.status(401).json({ error: 'Credenciales inválidas' });
       }
 
-      // Verificar la contraseña hasheada
+      // Verificar la contraseña
       bcrypt.compare(password, result[0].password, (err, isMatch) => {
         if (err) {
           console.error(err);
@@ -149,7 +149,7 @@ app.listen(3000, () => {
 
 //RUTAS
 
-//registro de alumnos a una clase
+//registrar alumnos a una clase
 
 app.post('/registrar-alumno', (req, res) => {
   const { nombre, edad, curso } = req.body;
